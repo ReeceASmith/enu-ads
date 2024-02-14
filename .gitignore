@@ -1,2 +1,6 @@
 # Ignore IDE files
 /.vs/
+
+# Ignore compiler junk
+*.obj
+*.exe
