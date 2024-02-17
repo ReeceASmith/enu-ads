@@ -29,29 +29,17 @@ int main() {
 	display(&d);
 	push_top(&d, 19);
 	display(&d);
-	push_bottom(&d, 24);
+	printf("p %d\n", *pop_bottom(&d, 24));
 	display(&d);
-	push_top(&d, 25);
+	printf("p %d\n", *pop_bottom(&d, 24));
+	display(&d);
+	printf("p %d\n", *pop_bottom(&d, 24));
+	display(&d);
+	printf("p %d\n", *pop_top(&d, 24));
+	display(&d);
+	printf("p %d\n", *pop_top(&d, 24));
 	display(&d);
 
-	int* p = pop_bottom(&d);
-	printf("Popped bottom: %d\n", *p);
-	display(&d);
-	p = pop_bottom(&d);
-	printf("Popped bottom: %d\n", *p);
-	display(&d);
-	p = pop_bottom(&d);
-	printf("Popped bottom: %d\n", *p);
-	display(&d);
-	p = pop_bottom(&d);
-	printf("Popped bottom: %d\n", *p);
-	display(&d);
-	p = pop_bottom(&d);
-	printf("Popped bottom: %d\n", *p);
-	display(&d);
-	p = pop_bottom(&d);
-	printf("Popped bottom: %d\n", *p);
-	display(&d);
 
 	return 0;
 }
@@ -137,6 +125,9 @@ int* pop_bottom(struct deque *d) {
 		d->top = -1;
 		d->bottom = -1;
 		return data;
+	}
+	if (d->bottom == -1) {
+		d->bottom = MAX - 1;
 	}
 
 	data = &d->d[d->bottom];
